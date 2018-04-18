@@ -16,7 +16,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 		$giv_id = $params['id'];
 	} else {
 		return $response->withHeader('Access-Control-Allow-Origin', '*')
-		->withHeader('Content-type', 'application/json')->withJson(array(
+		->withHeader('Content-Type', 'application/json')->withJson(array(
 		"errors" => array(
 			"code" => 0,
 			"message" => "Required id argument missing or invalid"
@@ -29,7 +29,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 			$sg_phpsessid = $params['sgsid'];
 		} else {
 			return $response->withHeader('Access-Control-Allow-Origin', '*')
-			->withHeader('Content-type', 'application/json')
+			->withHeader('Content-Type', 'application/json')
 			->withJson(array("errors" => array(
 				"code" => 1,
 				"message" => "Optional sgsid argument invalid"
@@ -167,7 +167,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 			}
 
 			return $response->withHeader('Access-Control-Allow-Origin', '*')
-			->withHeader('Content-type', 'application/json')
+			->withHeader('Content-Type', 'application/json')
 			->withJson($data, 200);
 
 		} catch (GeneralMsgException $exc) {
@@ -178,7 +178,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 			$giveaway_obj->store_html_error($exc->getCode(), $exc->getDict());
 
 			return $response->withHeader('Access-Control-Allow-Origin', '*')
-			->withHeader('Content-type', 'application/json')
+			->withHeader('Content-Type', 'application/json')
 			->withJson($exc->getDict(), 500);
 		}
 
@@ -190,7 +190,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 			// SG is down. END.
 
 			return $response->withHeader('Access-Control-Allow-Origin', '*')
-			->withHeader('Content-type', 'application/json')
+			->withHeader('Content-Type', 'application/json')
 			->withJson(array(
 			'errors' => array(
 				'code' => 0,
@@ -210,7 +210,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 			unset($stmt);
 
 			return $response->withHeader('Access-Control-Allow-Origin', '*')
-			->withHeader('Content-type', 'application/json')
+			->withHeader('Content-Type', 'application/json')
 			->withJson(array(
 			'errors' => array(
 				'code' => 2,
@@ -263,7 +263,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 				));
 
 				return $response->withHeader('Access-Control-Allow-Origin', '*')
-				->withHeader('Content-type', 'application/json')
+				->withHeader('Content-Type', 'application/json')
 				->withJson($data, 200);
 
 			} catch (BlacklistMsgException $exc) {
@@ -276,7 +276,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 					// SG is down. END.
 
 					return $response->withHeader('Access-Control-Allow-Origin', '*')
-					->withHeader('Content-type', 'application/json')
+					->withHeader('Content-Type', 'application/json')
 					->withJson(array('errors' => array(
 						'code' => 0,
 						'description' => 'The request to SG was unsuccessful'
@@ -295,7 +295,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 					unset($stmt);
 
 					return $response->withHeader('Access-Control-Allow-Origin', '*')
-					->withHeader('Content-type', 'application/json')
+					->withHeader('Content-Type', 'application/json')
 					->withJson(array('errors' => array(
 						'code' => 2,
 						'description' => 'The giveaway doesn\'t exist'
@@ -346,7 +346,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 						));
 
 						return $response->withHeader('Access-Control-Allow-Origin', '*')
-						->withHeader('Content-type', 'application/json')
+						->withHeader('Content-Type', 'application/json')
 						->withJson($data, 200);
 
 					} catch (GeneralMsgException $exc) {
@@ -357,7 +357,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 						$giveaway_obj->store_html_error($exc->getCode(), $exc->getDict());
 
 						return $response->withHeader('Access-Control-Allow-Origin', '*')
-						->withHeader('Content-type', 'application/json')
+						->withHeader('Content-Type', 'application/json')
 						->withJson($exc->getDict(), 500);
 					}
 
@@ -371,7 +371,7 @@ $app->get('/SteamGifts/IGiveaways/GetGivInfo/', function ($request, $response) {
 				$giveaway_obj->store_html_error($exc->getCode(), $exc->getDict());
 
 				return $response->withHeader('Access-Control-Allow-Origin', '*')
-				->withHeader('Content-type', 'application/json')
+				->withHeader('Content-Type', 'application/json')
 				->withJson($exc->getDict(), 500);
 			}
 		}
